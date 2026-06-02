@@ -355,7 +355,7 @@ function validateName(value, fieldId, errId){
   }
   // Kiểm tra số chữ (không quá 4 từ)
   const words = v.split(/\s+/).filter(Boolean);
-  if(words.length > 4){
+  if(words.length > 5){
     el.classList.add("invalid");
     err.textContent = "⚠ Họ tên không được quá 4 chữ.";
     err.classList.add("show"); return false;
@@ -366,7 +366,7 @@ function validateName(value, fieldId, errId){
     err.classList.add("show"); return false;
   }
   // Mỗi từ phải có tối thiểu 2 ký tự
-  const shortWord = words.find(w => w.length < 2);
+  const shortWord = words.find(w => w.length < 1);
   if (shortWord) {
       el.classList.add("invalid");
       err.textContent = "⚠ Mỗi chữ trong tên phải có ít nhất 2 ký tự (ví dụ: \"Lê\" thay vì \"L\").";
