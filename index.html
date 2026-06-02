@@ -353,7 +353,7 @@ function validateName(value, fieldId, errId){
     err.classList.add("show"); return false;
   }
   // Mỗi từ phải có tối thiểu 2 ký tự
-  const shortWord = words.find(w => w.length < 2);
+  const shortWord = words.find(w => w.length < 1);
   if (shortWord) {
       el.classList.add("invalid");
       err.textContent = "⚠ Mỗi chữ trong tên phải có ít nhất 2 ký tự (ví dụ: \"Lê\" thay vì \"L\").";
