@@ -312,7 +312,7 @@ const VI_CHARS = /^[abcdđeghiklmnopqrstuvxyABCDĐEGHIKLMNOPQRSTUVXYÀÁÂÃÈÉ
 const BAD_WORDS = [
   "lon","buoi","cut","daich","dit","cac","chim","buom",
   "dkm","dcm","cl","kon","vl","dm","cmm","đm","địt",
-  "lồn","buồi","cặc","chịm","bướm","cứt","cặk",
+  "lồn","buồi","cặc","chịm","bướm", "đĩ", "cứt","cặk",
   "loz","l0n", "non", "b*oi","c*c","d.m","fuck","sex","cock",
   "pussy","shit","ass","bitch","dick","trim", "clgt"
 ];
@@ -322,11 +322,23 @@ function removeDiacritics(str){
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D");
 }
 
+  /*
 function containsBadWord(value){
   const clean = removeDiacritics(value).toLowerCase().replace(/\s+/g,"");
   return BAD_WORDS.some(w => {
     const wClean = removeDiacritics(w).toLowerCase();
     return clean.includes(wClean);
+  });
+}*/
+
+function containsBadWord(value) {
+  const clean = removeDiacritics(value).toLowerCase();
+  // Tách câu thành các từ riêng biệt để kiểm tra từng từ một
+  const words = clean.split(/\s+/);
+  
+  return words.some(word => {
+    // Chỉ chặn nếu từ đó trùng khớp chính xác với danh sách cấm
+    return BAD_WORDS.some(bad => removeDiacritics(bad).toLowerCase() === word);
   });
 }
 
