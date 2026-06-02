@@ -312,7 +312,7 @@ const VI_CHARS = /^[abcdđeghiklmnopqrstuvxyABCDĐEGHIKLMNOPQRSTUVXYÀÁÂÃÈÉ
 const BAD_WORDS = [
   "lon","buoi","cut","daich","dit","cac","chim","buom",
   "dkm","dcm","cl","kon","vl","dm","cmm","đm","địt",
-  "lồn","buồi","cặc","chịm","bướm","cứt","đĩ","cặk",
+  "lồn","buồi","cặc","chịm","bướm","cứt","cặk",
   "loz","l0n", "non", "b*oi","c*c","d.m","fuck","sex","cock",
   "pussy","shit","ass","bitch","dick","trim", "clgt"
 ];
@@ -353,7 +353,7 @@ function validateName(value, fieldId, errId){
     err.classList.add("show"); return false;
   }
   // Mỗi từ phải có tối thiểu 2 ký tự
-  const shortWord = words.find(w => w.length < 1);
+  const shortWord = words.find(w => w.length < 2);
   if (shortWord) {
       el.classList.add("invalid");
       err.textContent = "⚠ Mỗi chữ trong tên phải có ít nhất 2 ký tự (ví dụ: \"Lê\" thay vì \"L\").";
