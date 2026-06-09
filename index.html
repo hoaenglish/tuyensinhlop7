@@ -232,7 +232,7 @@ footer strong{color:var(--mint)}
           </div>
 
           <div class="form-group">
-            <label>Đang học lớp</label>
+            <label>Học lớp 7... (tính theo năm học mới)</label>
             <input type="text" class="form-control" id="className"
               placeholder="VD: 7A1" maxlength="3" autocomplete="off">
             <div class="field-err" id="errClassName"></div>
@@ -528,7 +528,7 @@ onSnapshot(q,(snap)=>{
         <div class="s-stt" style="background:${color}">${stt}</div>
         <div>
           <div class="s-name">${d.studentName}</div>
-          <div class="s-class">Lớp ${d.className}</div>
+          <div class="s-class">Lớp ${d.className} - ${d.phone}</div>
         </div>
       </div>
       <div class="s-badge">✓ Đã đăng ký</div>`;
